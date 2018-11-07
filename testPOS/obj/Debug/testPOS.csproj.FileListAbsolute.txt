@@ -1,0 +1,15 @@
+C:\Users\Patrick Olsen\source\repos\testPOS\testPOS\bin\Debug\testPOS.exe.config
+C:\Users\Patrick Olsen\source\repos\testPOS\testPOS\bin\Debug\testPOS.exe
+C:\Users\Patrick Olsen\source\repos\testPOS\testPOS\bin\Debug\testPOS.pdb
+C:\Users\Patrick Olsen\source\repos\testPOS\testPOS\obj\Debug\testPOS.csprojAssemblyReference.cache
+C:\Users\Patrick Olsen\source\repos\testPOS\testPOS\obj\Debug\MainWindow.g.cs
+C:\Users\Patrick Olsen\source\repos\testPOS\testPOS\obj\Debug\App.g.cs
+C:\Users\Patrick Olsen\source\repos\testPOS\testPOS\obj\Debug\testPOS_MarkupCompile.cache
+C:\Users\Patrick Olsen\source\repos\testPOS\testPOS\obj\Debug\testPOS_MarkupCompile.lref
+C:\Users\Patrick Olsen\source\repos\testPOS\testPOS\obj\Debug\MainWindow.baml
+C:\Users\Patrick Olsen\source\repos\testPOS\testPOS\obj\Debug\testPOS.g.resources
+C:\Users\Patrick Olsen\source\repos\testPOS\testPOS\obj\Debug\testPOS.Properties.Resources.resources
+C:\Users\Patrick Olsen\source\repos\testPOS\testPOS\obj\Debug\testPOS.csproj.GenerateResource.cache
+C:\Users\Patrick Olsen\source\repos\testPOS\testPOS\obj\Debug\testPOS.csproj.CoreCompileInputs.cache
+C:\Users\Patrick Olsen\source\repos\testPOS\testPOS\obj\Debug\testPOS.exe
+C:\Users\Patrick Olsen\source\repos\testPOS\testPOS\obj\Debug\testPOS.pdb
