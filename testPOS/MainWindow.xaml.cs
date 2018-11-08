@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Entity;
 
 namespace testPOS
 {
@@ -20,6 +21,7 @@ namespace testPOS
     /// </summary>
     public partial class MainWindow : Window
     {
+        PosDBEntities dBEntities = new PosDBEntities();
         public MainWindow()
         {
             InitializeComponent();
@@ -27,7 +29,9 @@ namespace testPOS
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            DbSet<Customer> customers = dBEntities.Customers;
 
+            CustomerDG.ItemsSource = customers.ToList();
         }
 
         private void SaleButton_Click(object sender, RoutedEventArgs e)

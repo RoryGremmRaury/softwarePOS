@@ -10,21 +10,21 @@
         <FontFamily x:Key="MainFont">
             Arial
         </FontFamily>
-        
+        <Style TargetType="Button" x:Key="ButtonStyle">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Background" Value="LightGoldenrodYellow"/>
+            <Setter Property="Foreground" Value="DarkGray"/>
+            <Setter Property="ToolTip" Value="This is a button"/>
+        </Style>
     </Window.Resources>
     <StackPanel>
-        <StackPanel.Resources>
-            <Style TargetType="Button" x:Key="ButtonStyle">
-                <Setter Property="FontSize" Value="20"/>
-                <Setter Property="FontFamily" Value="Arial"/>
-                <Setter Property="FontWeight" Value="DemiBold"/>
-                <Setter Property="Height" Value="80"/>
-                <Setter Property="Width" Value="180"/>
-                <Setter Property="Background" Value="LightGoldenrodYellow"/>
-                <Setter Property="Foreground" Value="DarkGray"/>
-                <Setter Property="ToolTip" Value="This is a button"/>
-            </Style>
-        </StackPanel.Resources>
+        <StackPanel>
+            <DataGrid x:Name="CustomerDG" Margin="20" ItemsSource="{Binding}"/>
+        </StackPanel>
         <Button HorizontalAlignment="Left" Margin="20,10" x:Name="DrinkButton" Content="Drinks" Style="{StaticResource ButtonStyle}" Click="Button_Click"/>
         <Button HorizontalAlignment="Left" Margin="20,10" x:Name="FoodButton" Content="Food" Style="{StaticResource ButtonStyle}" Click="Button_Click"/>
         <Button HorizontalAlignment="Left" Margin="20,10" x:Name="AccountButton" Content="Account" Style="{StaticResource ButtonStyle}" Click="Button_Click"/>

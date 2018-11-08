@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PosDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="dbkey" />
+    </Key>
+    <Property Name="FirstName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsOfAge" Type="bit" Nullable="false" />
+    <Property Name="emailAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="dbkey" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'PosDB.dbo.Drinks' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Drinks">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Brand" />
+      <PropertyRef Name="SKU" />
+    </Key>
+    <Property Name="Name" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="Brand" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="Year" Type="smallint" />
+    <Property Name="SKU" Type="nchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'PosDB.dbo.Merch' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Merch">
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="SKU" Type="nvarchar" MaxLength="20" />
+          <Property Name="Price" Type="money" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'PosDB.dbo.Snacks' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Snacks">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="SKU" />
+    </Key>
+    <Property Name="Name" Type="nchar" MaxLength="40" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="SKU" Type="nchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="PosDBModelStoreContainer">
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Drinks" EntityType="Self.Drinks" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Drinks].[Name] AS [Name], 
+    [Drinks].[Brand] AS [Brand], 
+    [Drinks].[Year] AS [Year], 
+    [Drinks].[SKU] AS [SKU]
+    FROM [dbo].[Drinks] AS [Drinks]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Snacks" EntityType="Self.Snacks" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Snacks].[Name] AS [Name], 
+    [Snacks].[Price] AS [Price], 
+    [Snacks].[SKU] AS [SKU]
+    FROM [dbo].[Snacks] AS [Snacks]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
