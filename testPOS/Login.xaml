@@ -22,9 +22,9 @@
         
         <StackPanel Margin="20" Height="1000" Width="800" Background="Gray">
             <TextBox Text="Username" FontSize="30" Foreground="White" HorizontalAlignment="Center" Background="Gray"/>
-            <TextBlock x:Name="UsernameTB" Text="{Binding}" Height="50" Width="600" Background="White" />
+            <TextBox x:Name="UsernameTB" Text="" Height="50" Width="600" Background="White" />
             <TextBox Text="Password" FontSize="30" Foreground="White" HorizontalAlignment="Center" Background="Gray"/>
-            <TextBlock x:Name="PasswordTB" Text="{Binding}" Height="50" Width="600" Background="White" />
+            <TextBox x:Name="PasswordTB" Text="" Height="50" Width="600" Background="White" />
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="500">
                 <Button Content="1" FontSize="30" Height="80" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20"/>
                 <Button Content="2" FontSize="30" Height="80" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20"/>

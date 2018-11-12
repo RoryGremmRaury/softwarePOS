@@ -54,6 +54,11 @@ namespace testPOS
                 window.Show();
                 this.Close();
             }
+            else
+            {
+                MessageBox.Show("Incorrect Username or Password");
+            }
+            
             
         }
 
