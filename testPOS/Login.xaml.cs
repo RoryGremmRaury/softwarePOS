@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using POSSystem;
 
 namespace testPOS
 {
@@ -22,6 +23,14 @@ namespace testPOS
         public Login()
         {
             InitializeComponent();
+        }
+
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            //check for correct login info
+            MainWindow window = new MainWindow();
+            window.Show();
+            this.Close();
         }
     }
 }

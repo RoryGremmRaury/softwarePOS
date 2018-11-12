@@ -19,9 +19,11 @@
     </Window.Resources>
     <Border Background="Plum" CornerRadius="10">
         
-        <StackPanel Margin="150" Height="730" Width="1500" Background="Gray">
-            <TextBox Text="log in" FontSize="30" Foreground="White" HorizontalAlignment="Center" Background="Gray"/>
-            <TextBlock Text="{Binding}" Height="60" Width="800" Background="White" />
+        <StackPanel Margin="20" Height="1000" Width="800" Background="Gray">
+            <TextBox Text="Username" FontSize="30" Foreground="White" HorizontalAlignment="Center" Background="Gray"/>
+            <TextBlock x:Name="UsernameTB" Text="{Binding}" Height="50" Width="600" Background="White" />
+            <TextBox Text="Password" FontSize="30" Foreground="White" HorizontalAlignment="Center" Background="Gray"/>
+            <TextBlock x:Name="PasswordTB" Text="{Binding}" Height="50" Width="600" Background="White" />
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="500">
                 <Button Content="1" FontSize="30" Height="80" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20"/>
                 <Button Content="2" FontSize="30" Height="80" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20"/>
@@ -42,8 +44,8 @@
                 <Button Content="0" FontSize="30" Height="80" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20"/>
                 <Button Content="*" FontSize="30" Height="80" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="500">
-                <Button Content="Submit" FontSize="20" Background="Green" Height="80" Width="440" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="400">
+                <Button x:Name="SubmitButton" Content="Submit" FontSize="20" Background="Green" Height="80" Width="400" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Click="SubmitButton_Click"/>
 
             </StackPanel>
         </StackPanel>
