@@ -4,6 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Title="Login" Height="1080" Width="1920">
     <Window.Resources>
         <Style TargetType="Button" x:Key="ButtonStyle">
