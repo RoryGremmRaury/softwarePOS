@@ -10,16 +10,25 @@
     <Property Name="emailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="dbkey" Type="Int32" Nullable="false" />
   </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="orderNumber" />
+    </Key>
+    <Property Name="orderNumber" Type="Int32" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+  </EntityType>
   <EntityType Name="Drink">
     <Key>
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="Brand" />
       <PropertyRef Name="SKU" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Price" />
     </Key>
-    <Property Name="Name" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Brand" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="SKU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
     <Property Name="Year" Type="Int16" />
-    <Property Name="SKU" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Snack">
     <Key>
@@ -33,7 +42,18 @@
   </EntityType>
   <EntityContainer Name="PosDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
     <EntitySet Name="Drinks" EntityType="Self.Drink" />
     <EntitySet Name="Snacks" EntityType="Self.Snack" />
+    <EntitySet Name="Users" EntityType="PosDBModel.User" />
   </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="isAdmin" Type="Boolean" Nullable="false" />
+  </EntityType>
 </Schema>

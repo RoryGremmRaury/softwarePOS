@@ -20,7 +20,6 @@ C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\bin\Debug\EntityFram
 C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\bin\Debug\EntityFramework.xml
 C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS.csprojAssemblyReference.cache
 C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\obj\Debug\MainWindow.g.cs
 C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\obj\Debug\App.g.cs
 C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS_Content.g.cs
@@ -34,3 +33,6 @@ C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS.cs
 C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS.csproj.CopyComplete
 C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS.exe
 C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS.pdb
+C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS.csprojAssemblyReference.cache
+C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\obj\Debug\Login.baml
+C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\obj\Debug\Login.g.cs

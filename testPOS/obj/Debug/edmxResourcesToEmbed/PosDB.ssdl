@@ -14,14 +14,15 @@
 warning 6002: The table/view 'PosDB.dbo.Drinks' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Drinks">
     <Key>
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="Brand" />
       <PropertyRef Name="SKU" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Price" />
     </Key>
-    <Property Name="Name" Type="nchar" MaxLength="30" Nullable="false" />
-    <Property Name="Brand" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="SKU" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
     <Property Name="Year" Type="smallint" />
-    <Property Name="SKU" Type="nchar" MaxLength="15" Nullable="false" />
+    <Property Name="Brand" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6013: The table/view 'PosDB.dbo.Merch' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
@@ -30,6 +31,14 @@ warning 6013: The table/view 'PosDB.dbo.Merch' does not have a primary key defin
           <Property Name="SKU" Type="nvarchar" MaxLength="20" />
           <Property Name="Price" Type="money" />
         </EntityType>-->
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="orderNumber" />
+    </Key>
+    <Property Name="orderNumber" Type="int" Nullable="false" />
+    <Property Name="CustomerName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+  </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'PosDB.dbo.Snacks' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Snacks">
@@ -42,14 +51,26 @@ warning 6002: The table/view 'PosDB.dbo.Snacks' does not have a primary key defi
     <Property Name="Price" Type="money" Nullable="false" />
     <Property Name="SKU" Type="nchar" MaxLength="15" Nullable="false" />
   </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="isAdmin" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityContainer Name="PosDBModelStoreContainer">
     <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Drinks" EntityType="Self.Drinks" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
+    [Drinks].[SKU] AS [SKU], 
     [Drinks].[Name] AS [Name], 
-    [Drinks].[Brand] AS [Brand], 
+    [Drinks].[Price] AS [Price], 
     [Drinks].[Year] AS [Year], 
-    [Drinks].[SKU] AS [SKU]
+    [Drinks].[Brand] AS [Brand]
     FROM [dbo].[Drinks] AS [Drinks]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="Snacks" EntityType="Self.Snacks" store:Type="Tables" store:Schema="dbo">

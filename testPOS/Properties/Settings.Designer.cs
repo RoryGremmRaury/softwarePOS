@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace testPOS.Properties
+namespace POSSystem.Properties
 {
 
 

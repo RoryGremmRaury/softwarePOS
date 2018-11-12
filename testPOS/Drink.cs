@@ -14,9 +14,10 @@ namespace testPOS
     
     public partial class Drink
     {
-        public string Name { get; set; }
-        public string Brand { get; set; }
-        public Nullable<short> Year { get; set; }
         public string SKU { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public Nullable<short> Year { get; set; }
+        public string Brand { get; set; }
     }
 }
