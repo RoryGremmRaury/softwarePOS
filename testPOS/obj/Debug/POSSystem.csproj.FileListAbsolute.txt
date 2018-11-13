@@ -44,3 +44,14 @@ C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\obj\Debug\POSSystem.
 C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\obj\Debug\POSSystem.csproj.CopyComplete
 C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS.exe
 C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS.pdb
+C:\Users\GabeyBaby\Documents\GitHub\softwarePOS\testPOS\obj\Debug\POSSystem.csprojAssemblyReference.cache
+C:\Users\GabeyBaby\Documents\GitHub\softwarePOS\testPOS\obj\Debug\Login.baml
+C:\Users\GabeyBaby\Documents\GitHub\softwarePOS\testPOS\obj\Debug\Login.g.cs
+C:\Users\GabeyBaby\Documents\GitHub\softwarePOS\testPOS\obj\Debug\MainWindow.g.cs
+C:\Users\GabeyBaby\Documents\GitHub\softwarePOS\testPOS\obj\Debug\SearchBoard.g.cs
+C:\Users\GabeyBaby\Documents\GitHub\softwarePOS\testPOS\obj\Debug\App.g.cs
+C:\Users\GabeyBaby\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS_Content.g.cs
+C:\Users\GabeyBaby\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS_MarkupCompile.cache
+C:\Users\GabeyBaby\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS_MarkupCompile.lref
+C:\Users\GabeyBaby\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS.exe
+C:\Users\GabeyBaby\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS.pdb
