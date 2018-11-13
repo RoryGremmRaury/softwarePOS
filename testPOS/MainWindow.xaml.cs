@@ -35,6 +35,7 @@ namespace POSSystem
                             where testDrink.Name == "Water"
                             select testDrink.Name;
             testButton.Content = testQuery.ToString();
+            //loggedInAsTB.Text = 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
