@@ -27,8 +27,17 @@
         
         <!-- panel for displaying info in current order -->
         <StackPanel x:Name="currentOrderPanel">
-            <DataGrid x:Name="currentOrderDG" ItemsSource="{Binding}">
-                
+            <DataGrid x:Name="currentOrderDG" ItemsSource="{Binding}" Height="150">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Item" Width="150"/>
+                    <DataGridTextColumn Header="Price" Width="70"/>
+                    
+                </DataGrid.Columns>
+                <!--
+                <DataGridCellsPanel>
+                    <DataGridCell Content="Total:"/>
+                </DataGridCellsPanel>
+                -->
             </DataGrid>
         </StackPanel>
         

@@ -31,10 +31,10 @@ namespace POSSystem
         {
             InitializeComponent();
             DrinkCollection = new ObservableCollection<Drink>(dBEntities.Drinks);
-            var testQuery = from testDrink in DrinkCollection
-                            where testDrink.Name == "Water"
-                            select testDrink.Name;
-            testButton.Content = testQuery.ToString();
+            //var testQuery = from testDrink in DrinkCollection
+            //                where testDrink.Name == "Water"
+            //                select testDrink.Name;
+            //testButton.Content = testQuery.ToString();
             //loggedInAsTB.Text = 
         }
 
@@ -49,28 +49,33 @@ namespace POSSystem
                              where drink.Price >= (decimal)0.0
                              select drink.Price;
 
-            PriceDG.ItemsSource = priceQuery.ToList();
+            //PriceDG.ItemsSource = priceQuery.ToList();
         }
 
         private void DrinkButton_Click(object sender, RoutedEventArgs e)
         {
-            DbSet<Drink> drinks = dBEntities.Drinks;
-            DrinkDG.Visibility = (DrinkDG.Visibility == Visibility.Visible) ? Visibility.Collapsed : Visibility.Visible;
-            DrinkDG.ItemsSource = drinks.ToList();
+            //DbSet<Drink> drinks = dBEntities.Drinks;
+            //DrinkDG.Visibility = (DrinkDG.Visibility == Visibility.Visible) ? Visibility.Collapsed : Visibility.Visible;
+            //DrinkDG.ItemsSource = drinks.ToList();
         }
 
         private void FoodButton_Click(object sender, RoutedEventArgs e)
         {
-            DbSet<Snack> snacks = dBEntities.Snacks;
-            SnackDG.Visibility = (SnackDG.Visibility == Visibility.Visible) ? Visibility.Collapsed : Visibility.Visible;
-            SnackDG.ItemsSource = snacks.ToList();
+            //DbSet<Snack> snacks = dBEntities.Snacks;
+            //SnackDG.Visibility = (SnackDG.Visibility == Visibility.Visible) ? Visibility.Collapsed : Visibility.Visible;
+            //SnackDG.ItemsSource = snacks.ToList();
         }
 
         private void AccountButton_Click(object sender, RoutedEventArgs e)
         {
-            DbSet<Customer> customers = dBEntities.Customers;
-            CustomerDG.Visibility = (CustomerDG.Visibility == Visibility.Visible) ? Visibility.Collapsed : Visibility.Visible;
-            CustomerDG.ItemsSource = customers.ToList();
+            //DbSet<Customer> customers = dBEntities.Customers;
+            //CustomerDG.Visibility = (CustomerDG.Visibility == Visibility.Visible) ? Visibility.Collapsed : Visibility.Visible;
+            //CustomerDG.ItemsSource = customers.ToList();
+        }
+
+        private void OrderButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
