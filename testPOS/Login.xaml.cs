@@ -25,7 +25,7 @@ namespace testPOS
         public string UserPassword { get; set; }
         private string userInput;
 
-        PosDBEntities posEBEntities = new PosDBEntities();
+        PosDBEntities_ posEBEntities = new PosDBEntities_();
         ObservableCollection<User> users;
 
         public Login()
@@ -36,13 +36,13 @@ namespace testPOS
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //initialize user db
-            users = new ObservableCollection<User>(posEBEntities.Users);
+            users = new ObservableCollection<User>(posEBEntities.Users_);
 
             //trim usernames and passwords of whitespace
             foreach(User user in users)
             {
-                user.Username.Trim();
-                user.Password.Trim();
+                user.UserLoginName.Trim();
+                user.UserPassword.Trim();
             }
             UserIdTB.Focus();
 
@@ -59,7 +59,7 @@ namespace testPOS
 
             //query database for UN/PW combo
             var query = from user in users
-                        where (UserIdTB.Text == user.Username && PasswordTB.Text == user.Password)
+                        where (UserIdTB.Text == user.UserLoginName && PasswordTB.Text == user.UserPassword)
                         select user;
             //if there is at least one user with that login info then...
             if(query.Count() > 0)

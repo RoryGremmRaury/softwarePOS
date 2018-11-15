@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="PosDBModelStoreContainer" CdmEntityContainer="PosDBEntities">
+  <EntityContainerMapping StorageEntityContainer="PosDBModelStoreContainer" CdmEntityContainer="PosDBEntities_">
     <EntitySetMapping Name="Customers">
       <EntityTypeMapping TypeName="PosDBModel.Customer">
         <MappingFragment StoreEntitySet="Customers">
@@ -41,12 +41,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="PosDBModel.User">
-        <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
+    <EntitySetMapping Name="Users_">
+      <EntityTypeMapping TypeName="PosDBModel.Users_">
+        <MappingFragment StoreEntitySet="Users_">
+          <ScalarProperty Name="UserAccessLevel" ColumnName="UserAccessLevel" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserLoginName" ColumnName="UserLoginName" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -5,6 +5,12 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="PosDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'PosDB.dbo.CustomerList' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CustomerList">
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="CustID" Type="int" />
+        </EntityType>-->
         <EntityType Name="Customers">
           <Key>
             <PropertyRef Name="dbkey" />
@@ -15,6 +21,15 @@
           <Property Name="emailAddress" Type="nvarchar" MaxLength="50" />
           <Property Name="dbkey" Type="int" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'PosDB.dbo.DrinkList' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="DrinkList">
+          <Property Name="name" Type="varchar" MaxLength="20" />
+          <Property Name="DrinkID" Type="int" />
+          <Property Name="price" Type="money" />
+          <Property Name="year" Type="int" />
+          <Property Name="brand" Type="varchar" MaxLength="20" />
+        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'PosDB.dbo.Drinks' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Drinks">
@@ -36,6 +51,21 @@ warning 6013: The table/view 'PosDB.dbo.Merch' does not have a primary key defin
           <Property Name="SKU" Type="nvarchar" MaxLength="20" />
           <Property Name="Price" Type="money" />
         </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'PosDB.dbo.MerchList' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="MerchList">
+          <Property Name="name" Type="varchar" MaxLength="20" />
+          <Property Name="MerchID" Type="int" />
+          <Property Name="price" Type="money" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'PosDB.dbo.orderList' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="orderList">
+          <Property Name="CustID" Type="int" />
+          <Property Name="DrinkID" Type="int" />
+          <Property Name="MerchID" Type="int" />
+          <Property Name="snackID" Type="int" />
+        </EntityType>-->
         <EntityType Name="Orders">
           <Key>
             <PropertyRef Name="orderNumber" />
@@ -44,6 +74,20 @@ warning 6013: The table/view 'PosDB.dbo.Merch' does not have a primary key defin
           <Property Name="CustomerName" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="Price" Type="money" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'PosDB.dbo.OrderTab' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="OrderTab">
+          <Property Name="orderNumber" Type="int" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="20" />
+          <Property Name="totalPrice" Type="money" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'PosDB.dbo.SnackList' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SnackList">
+          <Property Name="name" Type="varchar" MaxLength="20" />
+          <Property Name="price" Type="money" />
+          <Property Name="snackID" Type="int" />
+        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'PosDB.dbo.Snacks' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Snacks">
@@ -56,19 +100,26 @@ warning 6002: The table/view 'PosDB.dbo.Snacks' does not have a primary key defi
           <Property Name="Price" Type="money" Nullable="false" />
           <Property Name="SKU" Type="nchar" MaxLength="15" Nullable="false" />
         </EntityType>
-        <EntityType Name="Users">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'PosDB.dbo.UserList' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="UserList">
+          <Property Name="name" Type="varchar" MaxLength="20" />
+          <Property Name="username" Type="varchar" MaxLength="12" />
+          <Property Name="priorityLvl" Type="int" />
+        </EntityType>-->
+        <EntityType Name="Users_">
           <Key>
             <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Username" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="isAdmin" Type="bit" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserLoginName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserAccessLevel" Type="int" Nullable="false" />
         </EntityType>
         <EntityContainer Name="PosDBModelStoreContainer">
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users_" EntityType="Self.Users_" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Drinks" EntityType="Self.Drinks" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Drinks].[SKU] AS [SKU], 
@@ -130,28 +181,28 @@ warning 6002: The table/view 'PosDB.dbo.Snacks' does not have a primary key defi
           <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="SKU" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="PosDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="PosDBEntities_" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="Drinks" EntityType="Self.Drink" />
           <EntitySet Name="Snacks" EntityType="Self.Snack" />
-          <EntitySet Name="Users" EntityType="PosDBModel.User" />
+          <EntitySet Name="Users_" EntityType="PosDBModel.Users_" />
         </EntityContainer>
-        <EntityType Name="User">
+        <EntityType Name="Users_">
           <Key>
             <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="isAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserLoginName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserAccessLevel" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PosDBModelStoreContainer" CdmEntityContainer="PosDBEntities">
+        <EntityContainerMapping StorageEntityContainer="PosDBModelStoreContainer" CdmEntityContainer="PosDBEntities_">
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="PosDBModel.Customer">
               <MappingFragment StoreEntitySet="Customers">
@@ -192,12 +243,12 @@ warning 6002: The table/view 'PosDB.dbo.Snacks' does not have a primary key defi
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="PosDBModel.User">
-              <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
+          <EntitySetMapping Name="Users_">
+            <EntityTypeMapping TypeName="PosDBModel.Users_">
+              <MappingFragment StoreEntitySet="Users_">
+                <ScalarProperty Name="UserAccessLevel" ColumnName="UserAccessLevel" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserLoginName" ColumnName="UserLoginName" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
               </MappingFragment>
             </EntityTypeMapping>

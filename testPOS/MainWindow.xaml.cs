@@ -24,58 +24,55 @@ namespace POSSystem
     /// </summary>
     public partial class MainWindow : Window
     {
-        PosDBEntities dBEntities = new PosDBEntities();
-        ObservableCollection<Drink> DrinkCollection;
+        List<OrderItem> OrderItems = new List<OrderItem>();
 
         public MainWindow()
         {
             InitializeComponent();
-            DrinkCollection = new ObservableCollection<Drink>(dBEntities.Drinks);
-            //var testQuery = from testDrink in DrinkCollection
-            //                where testDrink.Name == "Water"
-            //                select testDrink.Name;
-            //testButton.Content = testQuery.ToString();
-            //loggedInAsTB.Text = 
+            //currentOrderDG.ItemsSource = OrderItems;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //checks to see if another screen is being displayed and collapses it if there is one
+            
         }
 
         private void SaleButton_Click(object sender, RoutedEventArgs e)
         {
-            var priceQuery = from drink in DrinkCollection
-                             where drink.Price >= (decimal)0.0
-                             select drink.Price;
-
-            //PriceDG.ItemsSource = priceQuery.ToList();
+            
         }
 
         private void DrinkButton_Click(object sender, RoutedEventArgs e)
         {
-            //DbSet<Drink> drinks = dBEntities.Drinks;
-            //DrinkDG.Visibility = (DrinkDG.Visibility == Visibility.Visible) ? Visibility.Collapsed : Visibility.Visible;
-            //DrinkDG.ItemsSource = drinks.ToList();
+
+            OrderItem item = new OrderItem
+            {
+                ItemName = "item1",
+                Price = ((decimal)5.00),
+                Count = 1
+            };
+            currentOrderDG.Items.Add(item);
         }
 
         private void FoodButton_Click(object sender, RoutedEventArgs e)
         {
-            //DbSet<Snack> snacks = dBEntities.Snacks;
-            //SnackDG.Visibility = (SnackDG.Visibility == Visibility.Visible) ? Visibility.Collapsed : Visibility.Visible;
-            //SnackDG.ItemsSource = snacks.ToList();
+            
         }
 
         private void AccountButton_Click(object sender, RoutedEventArgs e)
         {
-            //DbSet<Customer> customers = dBEntities.Customers;
-            //CustomerDG.Visibility = (CustomerDG.Visibility == Visibility.Visible) ? Visibility.Collapsed : Visibility.Visible;
-            //CustomerDG.ItemsSource = customers.ToList();
+            
         }
 
         private void OrderButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            SearchBoard kbWindow = new SearchBoard();
+            kbWindow.Show();
         }
     }
 }

@@ -76,10 +76,21 @@
     <Compile Include="Order.cs">
       <DependentUpon>PosDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="OrderItem.cs" />
+    <Compile Include="PosDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PosDB.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="PosDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PosDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PosDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PosDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="SearchBoard.xaml.cs">
       <DependentUpon>SearchBoard.xaml</DependentUpon>
@@ -87,7 +98,7 @@
     <Compile Include="Snack.cs">
       <DependentUpon>PosDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="User.cs">
+    <Compile Include="Users_.cs">
       <DependentUpon>PosDB.tt</DependentUpon>
     </Compile>
     <Page Include="Login.xaml">
@@ -112,16 +123,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PosDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PosDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PosDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PosDB.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

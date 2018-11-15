@@ -13,10 +13,10 @@ namespace testPOS
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PosDBEntities : DbContext
+    public partial class PosDBEntities_ : DbContext
     {
-        public PosDBEntities()
-            : base("name=PosDBEntities")
+        public PosDBEntities_()
+            : base("name=PosDBEntities_")
         {
         }
     
@@ -29,6 +29,6 @@ namespace testPOS
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Drink> Drinks { get; set; }
         public virtual DbSet<Snack> Snacks { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<User> Users_ { get; set; }
     }
 }
