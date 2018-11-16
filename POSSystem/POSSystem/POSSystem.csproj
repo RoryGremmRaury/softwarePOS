@@ -163,6 +163,7 @@
       <LastGenOutput>PosDB.Context.cs</LastGenOutput>
       <DependentUpon>PosDB.edmx</DependentUpon>
     </Content>
+    <Content Include="PosDB.edmx.sql" />
     <Content Include="PosDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PosDB.edmx</DependentUpon>

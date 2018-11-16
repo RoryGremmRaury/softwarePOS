@@ -32,5 +32,20 @@ namespace POSSystem.Windows
             //adds variable to text box
             SearchTB.Text += keyInput;
         }
+
+        private void BackSpace_Button_Click(object sender, RoutedEventArgs e)
+        {
+            string text = SearchTB.Text;
+            if (text.Length > 0)
+            {
+                text = text.Remove(text.Length - 1, 1);
+                SearchTB.Text = text;
+            }
+        }
+
+        private void Enter_Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -6,39 +6,44 @@
         xmlns:local="clr-namespace:POSSystem.Windows"
         mc:Ignorable="d"
          Title="SearchBoard" Height="350" Width="800">
-    <StackPanel>
-        <TextBox x:Name="SearchTB" Text="" Background="AntiqueWhite" Height="40" Margin="20"/>
+    <StackPanel Background="Gray">
+        <TextBox x:Name="SearchTB" Text="" Background="White" Height="40" Margin="20"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="Q_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Center" Content="Q" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="W_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Center" Content="W" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="E_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Center" Content="E" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="R_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Center" Content="R" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="T_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Center" Content="T" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="Y_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Center" Content="Y" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="U_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Center" Content="U" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="I_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Center" Content="I" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="O_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Center" Content="O" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="P_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Center" Content="P" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="Q_Button" Height="40" Width="60" HorizontalAlignment="Center" Content="Q" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="W_Button" Height="40" Width="60" HorizontalAlignment="Center" Content="W" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="E_Button" Height="40" Width="60" HorizontalAlignment="Center" Content="E" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="R_Button" Height="40" Width="60" HorizontalAlignment="Center" Content="R" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="T_Button" Height="40" Width="60" HorizontalAlignment="Center" Content="T" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="Y_Button" Height="40" Width="60" HorizontalAlignment="Center" Content="Y" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="U_Button" Height="40" Width="60" HorizontalAlignment="Center" Content="U" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="I_Button" Height="40" Width="60" HorizontalAlignment="Center" Content="I" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="O_Button" Height="40" Width="60" HorizontalAlignment="Center" Content="O" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="P_Button" Height="40" Width="60" HorizontalAlignment="Center" Content="P" Margin="5" Click="QWERTY_ButtonClick"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="A_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Left" Content="A" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="S_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Left" Content="S" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="D_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Left" Content="D" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="F_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Left" Content="F" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="G_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Left" Content="G" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="H_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Left" Content="H" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="J_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Left" Content="J" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="K_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Left" Content="K" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="L_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Left" Content="L" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="A_Button" Height="40" Width="60" HorizontalAlignment="Left" Content="A" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="S_Button" Height="40" Width="60" HorizontalAlignment="Left" Content="S" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="D_Button" Height="40" Width="60" HorizontalAlignment="Left" Content="D" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="F_Button" Height="40" Width="60" HorizontalAlignment="Left" Content="F" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="G_Button" Height="40" Width="60" HorizontalAlignment="Left" Content="G" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="H_Button" Height="40" Width="60" HorizontalAlignment="Left" Content="H" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="J_Button" Height="40" Width="60" HorizontalAlignment="Left" Content="J" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="K_Button" Height="40" Width="60" HorizontalAlignment="Left" Content="K" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="L_Button" Height="40" Width="60" HorizontalAlignment="Left" Content="L" Margin="5" Click="QWERTY_ButtonClick"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="Z_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Left" Content="Z" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="X_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Left" Content="X" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="C_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Left" Content="C" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="V_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Left" Content="V" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="B_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Left" Content="B" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="N_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Left" Content="N" Margin="5" Click="QWERTY_ButtonClick"/>
-            <Button x:Name="M_Button" Background="Beige" Height="40" Width="60" HorizontalAlignment="Left" Content="M" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="Z_Button" Height="40" Width="60" HorizontalAlignment="Left" Content="Z" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="X_Button" Height="40" Width="60" HorizontalAlignment="Left" Content="X" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="C_Button" Height="40" Width="60" HorizontalAlignment="Left" Content="C" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="V_Button" Height="40" Width="60" HorizontalAlignment="Left" Content="V" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="B_Button" Height="40" Width="60" HorizontalAlignment="Left" Content="B" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="N_Button" Height="40" Width="60" HorizontalAlignment="Left" Content="N" Margin="5" Click="QWERTY_ButtonClick"/>
+            <Button x:Name="M_Button" Height="40" Width="60" HorizontalAlignment="Left" Content="M" Margin="5" Click="QWERTY_ButtonClick"/>
         </StackPanel>
+        <DockPanel>
+            <Button x:Name="BackSpace_Button" Height="40" Width="140" DockPanel.Dock="Left" Content="Backspace" Margin="5" Click="BackSpace_Button_Click"/>
+            <Button x:Name="Space_Button" Height="40" Width="480" HorizontalAlignment="Center" Content=" " Margin="5" Click="QWERTY_ButtonClick" />
+            <Button x:Name="Enter_Button" Height="40" Width="140" HorizontalAlignment="Right" Content="Enter" Margin="5" Click="Enter_Button_Click"/>
+        </DockPanel>
     </StackPanel>
 </Window>
