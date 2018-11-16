@@ -19,7 +19,7 @@
           </Key>
           <Property Name="ItemID" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Price" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
           <Property Name="Year" Type="int" />
           <Property Name="Brand" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -29,7 +29,7 @@
           </Key>
           <Property Name="OrderNumber" Type="int" Nullable="false" />
           <Property Name="CustomerName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="TotalPrice" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TotalPrice" Type="money" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>

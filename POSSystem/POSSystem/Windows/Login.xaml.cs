@@ -52,22 +52,22 @@ namespace POSSystem.Windows
             //pull number from button pressed
             userInput = (((Button)sender).Content).ToString();
             //add number to string in credential area
-            PasswordTB.Text += userInput;
+            PasswordTB.Password += userInput;
         }
         private void CLRButton_Click(object sender, RoutedEventArgs e)
         {
-            string text = PasswordTB.Text;
+            string text = PasswordTB.Password;
             if (text.Length > 0)
             {
                 text = text.Remove(text.Length - 1, 1);
-                PasswordTB.Text = text;
+                PasswordTB.Password = text;
             }
         }
 
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
             var query = from user in users
-                        where (UserIdTB.Text == user.Username && PasswordTB.Text == user.Password)
+                        where (UserIdTB.Text == user.Username && PasswordTB.Password == user.Password)
                         select user;
 
 
