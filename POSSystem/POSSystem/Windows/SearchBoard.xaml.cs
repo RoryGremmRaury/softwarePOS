@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,16 @@ namespace POSSystem.Windows
     /// </summary>
     public partial class SearchBoard : Window
     {
+        pos_dbEntities dataEntities = new pos_dbEntities();
+        List<Product> OrderItems = new List<Product>();
+        public ObservableCollection<Product> productCollection;
+
         string keyInput = "";
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            OrderItems = dataEntities.Products.ToList();
+            productCollection = new ObservableCollection<Product>(OrderItems);
+        } 
         public SearchBoard()
         {
             InitializeComponent();
@@ -31,6 +41,8 @@ namespace POSSystem.Windows
             keyInput = (((Button)sender).Content).ToString();
             //adds variable to text box
             SearchTB.Text += keyInput;
+
+            
         }
 
         private void BackSpace_Button_Click(object sender, RoutedEventArgs e)
@@ -45,7 +57,13 @@ namespace POSSystem.Windows
 
         private void Enter_Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            var query = from product in productCollection
+                        where product.ProductName == "water"
+                        select product;
+            MessageBox.Show(query.ToString());
+            //this.Close();
         }
+
+        
     }
 }

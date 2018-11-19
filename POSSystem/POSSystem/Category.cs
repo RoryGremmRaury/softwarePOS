@@ -12,12 +12,9 @@ namespace POSSystem
     using System;
     using System.Collections.Generic;
     
-    public partial class Drink
+    public partial class Category
     {
-        public int ItemID { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public Nullable<int> Year { get; set; }
-        public string Brand { get; set; }
+        public int ProductCategory { get; set; }
+        public string CategoryName { get; set; }
     }
 }

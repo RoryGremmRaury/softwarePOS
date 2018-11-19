@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POSSystem.Windows"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
          Title="SearchBoard" Height="350" Width="800">
     <StackPanel Background="Gray">
         <TextBox x:Name="SearchTB" Text="" Background="White" Height="40" Margin="20"/>

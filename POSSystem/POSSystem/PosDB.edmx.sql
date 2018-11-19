@@ -49,13 +49,12 @@ CREATE TABLE [dbo].[Customers] (
 );
 GO
 
--- Creating table 'Drinks'
-CREATE TABLE [dbo].[Drinks] (
-    [ItemID] int  NOT NULL,
+-- Creating table 'Products'
+CREATE TABLE [dbo].[Products] (
+    [ProductID] int  NOT NULL,
     [Name] nvarchar(50)  NOT NULL,
     [Price] decimal(19,4)  NOT NULL,
-    [Year] int  NULL,
-    [Brand] nvarchar(50)  NULL
+	[Category] nvarchar(20) NOT NULL
 );
 GO
 
@@ -87,8 +86,8 @@ ADD CONSTRAINT [PK_Customers]
 GO
 
 -- Creating primary key on [ItemID] in table 'Drinks'
-ALTER TABLE [dbo].[Drinks]
-ADD CONSTRAINT [PK_Drinks]
+ALTER TABLE [dbo].[Products]
+ADD CONSTRAINT [PK_Products]
     PRIMARY KEY CLUSTERED ([ItemID] ASC);
 GO
 

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POSSystem"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Title="MainMenu" Height="800" Width="900">
     <Window.Resources>
         <FontFamily x:Key="MainFont">
@@ -21,35 +22,46 @@
             <Setter Property="ToolTip" Value="This is a button"/>
         </Style>
     </Window.Resources>
-    <StackPanel>
-        <!-- small section for displaying who is logged in currently (work in progress) -->
-        <TextBlock x:Name="loggedInAsTB" Text="{Binding}" Foreground="Yellow" HorizontalAlignment="Left"/>
+    <Grid>
+        
 
-        <!-- panel for displaying info in current order -->
-        <StackPanel x:Name="currentOrderPanel">
-            <DataGrid x:Name="currentOrderDG" ItemsSource="{Binding}" Height="150" CanUserAddRows="True">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Item Name" Binding="{Binding ItemName}"/>
-                    <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
-                    <DataGridTextColumn Header="#" Binding="{Binding Count}"/>
-                </DataGrid.Columns>
-            </DataGrid>
+        <StackPanel>
+            <!-- small section for displaying who is logged in currently (work in progress) -->
+            <TextBlock x:Name="loggedInAsTB" Text="{Binding}" Foreground="Yellow" HorizontalAlignment="Left"/>
+
+            <!-- panel for displaying info in current order -->
+            <StackPanel x:Name="currentOrderPanel">
+                <DataGrid x:Name="CurrentOrderDisplay" ItemsSource="{Binding}" Height="150" CanUserAddRows="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Item Name" Binding="{Binding ProductName}"/>
+                        <DataGridTextColumn Header="Price" Binding="{Binding ProductPrice}"/>
+                        <DataGridTextColumn Header="Type" Binding="{Binding ProductCategory}"/>
+                        <DataGridTextColumn Header="Product Id" Binding="{Binding ProductID}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+            <!-- buttons which should eventually populate based off of table names potentially -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button HorizontalAlignment="Left" Margin="20,10" x:Name="DrinkButton" Content="Drinks" Style="{StaticResource ButtonStyle}" Click="DrinkButton_Click"/>
+                <Button HorizontalAlignment="Left" Margin="20,10" x:Name="FoodButton" Content="Food" Style="{StaticResource ButtonStyle}" Click="FoodButton_Click"/>
+                <Button HorizontalAlignment="Left" Margin="20,10" x:Name="AccountButton" Content="Account" Style="{StaticResource ButtonStyle}" Click="AccountButton_Click"/>
+            </StackPanel>
+
+            <!-- second layer of buttons if needed -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button HorizontalAlignment="Left" Margin="20,10" x:Name="OrderButton" Content="Order" Style="{StaticResource ButtonStyle}" Click="OrderButton_Click"/>
+                <Button HorizontalAlignment="Left" Margin="20,10" x:Name="SearchButton" Content="Search" Style="{StaticResource ButtonStyle}" Click="SearchButton_Click"/>
+            </StackPanel>
+
+            <!-- button to total up the cost of items in the current order, (or possibly another order) -->
+            <Button HorizontalAlignment="Center" Margin="20,20" x:Name="SaleButton" Content="Sale" Style="{StaticResource ButtonStyle}" Click="SaleButton_Click"  Background="Green" Width="700" Height="50"/>
         </StackPanel>
-
-        <!-- buttons which should eventually populate based off of table names potentially -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button HorizontalAlignment="Left" Margin="20,10" x:Name="DrinkButton" Content="Drinks" Style="{StaticResource ButtonStyle}" Click="DrinkButton_Click"/>
-            <Button HorizontalAlignment="Left" Margin="20,10" x:Name="FoodButton" Content="Food" Style="{StaticResource ButtonStyle}" Click="FoodButton_Click"/>
-            <Button HorizontalAlignment="Left" Margin="20,10" x:Name="AccountButton" Content="Account" Style="{StaticResource ButtonStyle}" Click="AccountButton_Click"/>
+        <!--
+        <StackPanel x:Name="SubmenuOverlay" Height="300" Background="Black" Margin="40" Visibility="Visible">
+            <Button x:Name="TestOLButton" Content="{}" Style="{StaticResource ButtonStyle}" Width="500" Height="150"/> 
         </StackPanel>
+        -->
 
-        <!-- second layer of buttons if needed -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button HorizontalAlignment="Left" Margin="20,10" x:Name="OrderButton" Content="Order" Style="{StaticResource ButtonStyle}" Click="OrderButton_Click"/>
-            <Button HorizontalAlignment="Left" Margin="20,10" x:Name="SearchButton" Content="Search" Style="{StaticResource ButtonStyle}" Click="SearchButton_Click"/>
-        </StackPanel>
-
-        <!-- button to total up the cost of items in the current order, (or possibly another order) -->
-        <Button HorizontalAlignment="Center" Margin="20,20" x:Name="SaleButton" Content="Sale" Style="{StaticResource ButtonStyle}" Click="SaleButton_Click"  Background="Green" Width="700" Height="50"/>
-    </StackPanel>
+    </Grid>
 </Window>
