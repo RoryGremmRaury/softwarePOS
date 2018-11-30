@@ -68,7 +68,7 @@
     <Compile Include="Customer.cs">
       <DependentUpon>PosDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OrderItem.cs" />
+    <Compile Include="Models\ProductButton.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>PosDB.tt</DependentUpon>
     </Compile>
@@ -93,12 +93,26 @@
     <Compile Include="User.cs">
       <DependentUpon>PosDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ButtonControl.xaml.cs">
+      <DependentUpon>ButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ButtonOverlayControl.xaml.cs">
+      <DependentUpon>ButtonOverlayControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SearchBoard.xaml.cs">
       <DependentUpon>SearchBoard.xaml</DependentUpon>
     </Compile>
+    <Page Include="UserControls\ButtonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ButtonOverlayControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\MainMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -152,11 +166,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UserControls\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

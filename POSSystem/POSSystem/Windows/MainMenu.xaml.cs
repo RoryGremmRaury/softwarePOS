@@ -15,6 +15,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using POSSystem.Windows;
+using POSSystem.Models;
+using POSSystem.UserControls;
 
 namespace POSSystem
 {
@@ -23,9 +25,9 @@ namespace POSSystem
     /// </summary>
     public partial class MainMenu : Window
     {
-        List<Product> OrderItems = new List<Product>();
-        pos_dbEntities dataEntities = new pos_dbEntities();
-
+        public List<Product> OrderItems = new List<Product>();
+        public pos_dbEntities dataEntities = new pos_dbEntities();
+        public List<ProductButton> pButtons;
         public ObservableCollection<Product> productCollection;
 
         public MainMenu()
@@ -37,20 +39,18 @@ namespace POSSystem
         {
             productCollection = new ObservableCollection<Product>(dataEntities.Products);
             DbSet<Product> products = dataEntities.Products;
+            pButtons = new List<ProductButton>();
+
         }
 
         private void SaleButton_Click(object sender, RoutedEventArgs e)
         {
-
-            //generating a new product  //can add in logic for setting category later 1- drink 2- food 3-merch
-            Product item = new Product
+            decimal total = (decimal)0.00;
+            foreach(Product item in OrderItems)
             {
-                ProductName = "food Product",
-                ProductPrice = ((decimal)5.00),
-                ProductCategory = 2,
-                ProductID = productCollection.Count + 1
-            };
-            CurrentOrderDisplay.Items.Add(item);
+                total += (decimal)item.ProductPrice;
+            }
+            MessageBox.Show(total.ToString());
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
@@ -61,53 +61,88 @@ namespace POSSystem
 
         private void OrderButton_Click(object sender, RoutedEventArgs e)
         {
-            OrderItem item = new OrderItem
+            DisplayOverlay();
+            
+        }
+
+        private void DisplayOverlay()
+        {
+            ButtonOverlayControl buttonContainer = new ButtonOverlayControl(pButtons);
+            
+            
+            var query = from product in productCollection
+                        where product.ProductCategory == 2   //1 = drink, 2 = food, 3 = merch
+                        select product;
+
+            Product[] queryArray = query.ToArray();
+
+            foreach(Product p in queryArray)
             {
-                ItemName = "OrderItem",
-                Price = ((decimal)5.00),
-                Count = 1
-            };
-            CurrentOrderDisplay.Items.Add(item);
+                ProductButton pb = new ProductButton(p.ProductName);
+                pButtons.Add(pb);
+                buttonContainer.ButtonOverlay.Children.Add(pb);
+            }
+            SubmenuOverlay.Children.Add(buttonContainer);
+            
         }
 
         private void AccountButton_Click(object sender, RoutedEventArgs e)
         {
-            var nameQuery = from product in productCollection
-                            //where product.ProductID
-                            select product.ProductName.ToList();
+            var query = from product in productCollection
+                        where product.ProductCategory == 2   //1 = drink, 2 = food, 3 = merch
+                        select product;
 
 
-            //TestOLButton.Content = nameQuery;
+            Product[] queryArray = query.ToArray();
+            foreach (Product p in queryArray)
+            {
+                SubmenuOverlay.Children.Add(new ProductButton(p.ProductName));
+            }
+            SubmenuOverlay.Children.Add(new ProductButton(queryArray[0].ProductName));
 
-            //OrderItem item = new OrderItem
-            //{
-            //    ItemName = nameQuery.ToString(),
-            //    Price = ((decimal)5.00),
-            //    Count = 1
-            //};
-            //CurrentOrderDisplay.Items.Add(item);
+            //TestOLButton.Content = queryArray[0].ProductName;
+
         }
 
         private void FoodButton_Click(object sender, RoutedEventArgs e)
         {
-            OrderItem item = new OrderItem
+            SubmenuOverlay.Visibility = (SubmenuOverlay.Visibility == Visibility.Visible) ? Visibility.Collapsed : Visibility.Visible;
+            var query = from product in productCollection
+                        where product.ProductCategory == 2   //1 = drink, 2 = food, 3 = merch
+                        select product;
+            
+
+            Product[] queryArray = query.ToArray();
+            foreach(Product p in queryArray)
             {
-                ItemName = "FoodItem1",
-                Price = ((decimal)5.00),
-                Count = 1
+
+                //TestOLButton.Content = p.ProductName;
+            }
+
+            //generating a new product  //can add in logic for setting category later 1- drink 2- food 3-merch
+            Product item = new Product
+            {
+                ProductName = "food Product",
+                ProductPrice = ((decimal)5.00),
+                ProductCategory = 2,
+                ProductID = productCollection.Count + 1
             };
             CurrentOrderDisplay.Items.Add(item);
+            OrderItems.Add(item);
+
         }
 
         private void DrinkButton_Click(object sender, RoutedEventArgs e)
         {
-            OrderItem item = new OrderItem
+            Product item = new Product
             {
-                ItemName = "DrinkItem1",
-                Price = ((decimal)5.00),
-                Count = 1
+                ProductName = "drink Product",
+                ProductPrice = ((decimal)7.50),
+                ProductCategory = 1,
+                ProductID = productCollection.Count + 1
             };
             CurrentOrderDisplay.Items.Add(item);
+            OrderItems.Add(item);
         }
 
         
