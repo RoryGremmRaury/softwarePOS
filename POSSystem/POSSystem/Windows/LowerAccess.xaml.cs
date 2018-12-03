@@ -16,23 +16,23 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using POSSystem.Windows;
 
-namespace POSSystem
+
+namespace POSSystem.Windows
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LowerAccess.xaml
     /// </summary>
-    public partial class MainMenu : Window
+    public partial class LowerAccess : Window
     {
         List<Product> OrderItems = new List<Product>();
         pos_dbEntities dataEntities = new pos_dbEntities();
 
         public ObservableCollection<Product> productCollection;
 
-        public MainMenu()
+        public LowerAccess()
         {
             InitializeComponent();
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             productCollection = new ObservableCollection<Product>(dataEntities.Products);
@@ -72,10 +72,11 @@ namespace POSSystem
 
         private void AccountButton_Click(object sender, RoutedEventArgs e)
         {
-            Account window = new Account();
-            window.Show();
-            this.Close();
-            
+            var nameQuery = from product in productCollection
+                                //where product.ProductID
+                            select product.ProductName.ToList();
+
+
             //TestOLButton.Content = nameQuery;
 
             //OrderItem item = new OrderItem
@@ -109,6 +110,5 @@ namespace POSSystem
             CurrentOrderDisplay.Items.Add(item);
         }
 
-        
     }
 }

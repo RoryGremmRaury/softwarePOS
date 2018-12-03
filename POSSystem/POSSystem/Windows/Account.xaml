@@ -1,0 +1,14 @@
+﻿<Window x:Class="POSSystem.Windows.Account"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POSSystem.Windows"
+        mc:Ignorable="d"
+        Title="Account" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="AddFood" Content="Add Food" HorizontalAlignment="Left" Margin="533,148,0,0" VerticalAlignment="Top" Width="170" Height="125"/>
+        <Button x:Name="back" Content="Back" HorizontalAlignment="Left" Margin="64,69,0,0" VerticalAlignment="Top" Width="127" Click="back_Click" Height="118"/>
+
+    </Grid>
+</Window>

@@ -62,9 +62,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Category.cs">
-      <DependentUpon>PosDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Customer.cs">
       <DependentUpon>PosDB.tt</DependentUpon>
     </Compile>
@@ -93,12 +90,26 @@
     <Compile Include="User.cs">
       <DependentUpon>PosDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Account.xaml.cs">
+      <DependentUpon>Account.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\LowerAccess.xaml.cs">
+      <DependentUpon>LowerAccess.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SearchBoard.xaml.cs">
       <DependentUpon>SearchBoard.xaml</DependentUpon>
     </Compile>
+    <Page Include="Windows\Account.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\LowerAccess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\MainMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -152,7 +163,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UserControls\" />

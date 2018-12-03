@@ -5,13 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="pos_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Categories">
-          <Key>
-            <PropertyRef Name="ProductCategory" />
-          </Key>
-          <Property Name="ProductCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
         <EntityType Name="Customers">
           <Key>
             <PropertyRef Name="CustomerID" />
@@ -28,14 +21,19 @@
           <Property Name="CustomerName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="TotalPrice" Type="decimal" Precision="19" Scale="4" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'pos_db.dbo.Products' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Products">
           <Key>
             <PropertyRef Name="ProductID" />
+            <PropertyRef Name="ProductName" />
+            <PropertyRef Name="ProductPrice" />
+            <PropertyRef Name="ProductCategory" />
           </Key>
-          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
           <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ProductPrice" Type="money" Nullable="false" />
-          <Property Name="ProductCategory" Type="int" Nullable="false" />
+          <Property Name="ProductPrice" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ProductCategory" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -47,11 +45,17 @@
           <Property Name="AccessLevel" Type="int" Nullable="false" />
         </EntityType>
         <EntityContainer Name="pos_dbModelStoreContainer">
-          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Products].[ProductID] AS [ProductID], 
+[Products].[ProductName] AS [ProductName], 
+[Products].[ProductPrice] AS [ProductPrice], 
+[Products].[ProductCategory] AS [ProductCategory]
+FROM [dbo].[Products] AS [Products]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -85,26 +89,21 @@
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ProductID" />
+            <PropertyRef Name="ProductName" />
+            <PropertyRef Name="ProductPrice" />
+            <PropertyRef Name="ProductCategory" />
           </Key>
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="ProductName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ProductPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-          <Property Name="ProductCategory" Type="Int32" Nullable="false" />
+          <Property Name="ProductCategory" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="pos_dbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="Products" EntityType="Self.Product" />
-          <EntitySet Name="Categories" EntityType="pos_dbModel.Category" />
         </EntityContainer>
-        <EntityType Name="Category">
-          <Key>
-            <PropertyRef Name="ProductCategory" />
-          </Key>
-          <Property Name="ProductCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -147,14 +146,6 @@
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="pos_dbModel.Category">
-              <MappingFragment StoreEntitySet="Categories">
-                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
-                <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
-              </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
         </EntityContainerMapping>

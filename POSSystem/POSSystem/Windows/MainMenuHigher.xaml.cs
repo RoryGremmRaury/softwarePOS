@@ -72,10 +72,11 @@ namespace POSSystem
 
         private void AccountButton_Click(object sender, RoutedEventArgs e)
         {
-            Account window = new Account();
-            window.Show();
-            this.Close();
-            
+            var nameQuery = from product in productCollection
+                            //where product.ProductID
+                            select product.ProductName.ToList();
+
+
             //TestOLButton.Content = nameQuery;
 
             //OrderItem item = new OrderItem

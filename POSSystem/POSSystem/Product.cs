@@ -17,6 +17,6 @@ namespace POSSystem
         public int ProductID { get; set; }
         public string ProductName { get; set; }
         public decimal ProductPrice { get; set; }
-        public int ProductCategory { get; set; }
+        public string ProductCategory { get; set; }
     }
 }

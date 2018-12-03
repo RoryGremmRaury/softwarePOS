@@ -57,3 +57,28 @@ C:\Users\GabeyBaby\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS.exe
 C:\Users\GabeyBaby\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS.pdb
 C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\obj\Debug\SearchBoard.g.cs
 C:\Users\Patrick Olsen\Documents\GitHub\softwarePOS\testPOS\obj\Debug\SearchBoard.baml
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\bin\Debug\testPOS.exe.config
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\bin\Debug\testPOS.exe
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\bin\Debug\testPOS.pdb
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\bin\Debug\EntityFramework.dll
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\bin\Debug\EntityFramework.xml
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\obj\Debug\POSSystem.csprojAssemblyReference.cache
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\obj\Debug\Login.baml
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\obj\Debug\Login.g.cs
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\obj\Debug\MainWindow.g.cs
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\obj\Debug\SearchBoard.g.cs
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\obj\Debug\App.g.cs
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS_Content.g.cs
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS_MarkupCompile.cache
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS_MarkupCompile.lref
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\obj\Debug\MainWindow.baml
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\obj\Debug\SearchBoard.baml
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS.g.resources
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS.Properties.Resources.resources
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\obj\Debug\POSSystem.csproj.GenerateResource.cache
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\obj\Debug\POSSystem.csproj.CoreCompileInputs.cache
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\obj\Debug\POSSystem.csproj.CopyComplete
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS.exe
+C:\Users\HDTV\Documents\GitHub\softwarePOS\testPOS\obj\Debug\testPOS.pdb

@@ -22,6 +22,7 @@ namespace POSSystem.Windows
     {
         public string UserName { get; set; }
         private string UserPassword { get; set; }
+        private string UserAccessLevel { get; set; }
         private string userInput;
 
         pos_dbEntities dbEntities = new pos_dbEntities();
@@ -42,6 +43,7 @@ namespace POSSystem.Windows
             {
                 user.Username.Trim();
                 user.Password.Trim();
+                
             }
             UserIdTB.Focus();
         }
@@ -66,23 +68,102 @@ namespace POSSystem.Windows
 
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
-            var query = from user in users
-                        where (UserIdTB.Text == user.Username && PasswordTB.Password == user.Password)
-                        select user;
 
-
-            //if there is at least one user with that login info then...
-            if (query.Count() > 0)
+            var query = users.FirstOrDefault(x => x.Username == UserIdTB.Text && x.Password == PasswordTB.Password);
+            if (query.AccessLevel == 1)
             {
+
                 MainMenu window = new MainMenu();
                 window.Show();
                 this.Close();
-            }
-            else
+
+
+            } else if (query.AccessLevel > 1)
             {
-                //if creds are wrong, let user know
-                MessageBox.Show("Incorrect Username or Password");
+                LowerAccess window = new LowerAccess();
+                window.Show();
+                this.Close();
             }
+
+            else {
+
+             //if creds are wrong, let user know
+                    MessageBox.Show("Incorrect Username or Password");
+
+            }
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           /*     var query = from user in users
+                            where (UserIdTB.Text == user.Username && PasswordTB.Password == user.Password)
+                            select user;
+                //if there is at least one user with that login info then...
+                if (query.Count() > 0)
+                {
+                        var query2 = from user in users
+                                     where (user.AccessLevel == level)
+                                     select user;
+                     if (query2.Count() > 0) {
+                        MainMenu window = new MainMenu();
+                         window.Show();
+                         this.Close();
+                     }
+                    else
+                    {
+                    LowerAccess window = new LowerAccess();
+                    window.Show();
+                    this.Close();
+                }
+                }
+                else
+                {
+                    //if creds are wrong, let user know
+                    MessageBox.Show("Incorrect Username or Password");
+                }
+     */
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
     }
-}
+
