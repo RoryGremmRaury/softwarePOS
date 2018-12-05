@@ -8,7 +8,7 @@
              d:DesignHeight="100" d:DesignWidth="200">
     <Grid>
         <Border BorderBrush="AliceBlue" BorderThickness="3">
-            <Button x:Name="ProductButton" Content="{Binding Path=Name}" Background="WhiteSmoke" Width="80" Height="40" Margin="10,20"/>
+            <Button x:Name="ProductButton" Background="WhiteSmoke" Width="80" Height="40" Margin="10,20"/>
         </Border>
     </Grid>
 </UserControl>

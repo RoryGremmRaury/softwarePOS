@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace POSSystem.Models
 {
@@ -16,6 +17,12 @@ namespace POSSystem.Models
         public ProductButton(string name)
         {
             Name = name;
+            Button pb = new Button();
+            pb.DataContext = this;
+            pb.MinWidth = Width;
+            pb.MinHeight = Height;
+            pb.Content = Name;
+            
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

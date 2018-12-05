@@ -29,7 +29,8 @@ namespace POSSystem
         public pos_dbEntities dataEntities = new pos_dbEntities();
         public List<ProductButton> pButtons;
         public ObservableCollection<Product> productCollection;
-
+        private bool showing = false;
+        private ButtonOverlayControl buttonContainer;
         public MainMenu()
         {
             InitializeComponent();
@@ -61,28 +62,46 @@ namespace POSSystem
 
         private void OrderButton_Click(object sender, RoutedEventArgs e)
         {
-            DisplayOverlay();
-            
+            if (showing == false)
+            {
+                DisplayOverlay();
+            }
+            else
+            {
+                SubmenuOverlay.Children.Clear();
+                showing = false;
+            }
         }
 
         private void DisplayOverlay()
         {
-            ButtonOverlayControl buttonContainer = new ButtonOverlayControl(pButtons);
-            
-            
+            if (buttonContainer is null)
+            {
+                buttonContainer = new ButtonOverlayControl(pButtons);
+            }
             var query = from product in productCollection
                         where product.ProductCategory == 2   //1 = drink, 2 = food, 3 = merch
                         select product;
 
+            
             Product[] queryArray = query.ToArray();
 
-            foreach(Product p in queryArray)
+            
+            foreach (Product p in queryArray)
             {
                 ProductButton pb = new ProductButton(p.ProductName);
                 pButtons.Add(pb);
-                buttonContainer.ButtonOverlay.Children.Add(pb);
+                //buttonContainer.ButtonOverlay.Children.Add(pb);
             }
-            SubmenuOverlay.Children.Add(buttonContainer);
+
+            //if there is already a button container, don't add another.
+            if(SubmenuOverlay.Children.Count == 0)
+            {
+                SubmenuOverlay.Children.Add(buttonContainer);
+            }
+            
+            
+            showing = true;
             
         }
 
