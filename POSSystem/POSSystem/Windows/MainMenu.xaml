@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POSSystem"
+        Loaded="Window_Loaded"
         mc:Ignorable="d"
         Title="MainMenu" Height="800" Width="900">
     <Window.Resources>
@@ -27,11 +28,10 @@
 
         <!-- panel for displaying info in current order -->
         <StackPanel x:Name="currentOrderPanel">
-            <DataGrid x:Name="currentOrderDG" ItemsSource="{Binding}" Height="150" CanUserAddRows="True">
+            <DataGrid x:Name="currentOrderDG" ItemsSource="{Binding}" Height="150" CanUserAddRows="True" AutoGenerateColumns="False" Foreground="Black">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Item Name" Binding="{Binding ItemName}"/>
-                    <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
-                    <DataGridTextColumn Header="#" Binding="{Binding Count}"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding ProductName}"/>
+                    <DataGridTextColumn Header="Price" Binding="{Binding ProductPrice}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

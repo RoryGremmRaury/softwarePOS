@@ -1,13 +1,33 @@
-﻿<Window x:Class="POSSystem.Windows.SearchBoard"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:behaviors="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
         xmlns:local="clr-namespace:POSSystem.Windows"
+        xmlns:Custom="http://wpfcontrols.com/" x:Class="POSSystem.Windows.SearchBoard"
         mc:Ignorable="d"
-         Title="SearchBoard" Height="350" Width="800">
+    Loaded="Window_Loaded"
+         Title="SearchBoard" Height="600" Width="800">
     <StackPanel Background="Gray">
-        <TextBox x:Name="SearchTB" Text="" Background="White" Height="40" Margin="20"/>
+        <TextBox x:Name="SearchTB" 
+                 Text="{Binding TestText, UpdateSourceTrigger=PropertyChanged}"
+                 behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding TestItems}"
+                 
+                 Background="White" 
+                 Width="650"
+                 Height="40" 
+                 KeyUp="SearchTB_KeyUp"
+                 Padding="5,3,5,3"
+                 TextChanged="SearchTB_TextChanged"/>
+        <Border Width="650"
+                Height="150"
+                BorderBrush="Black"
+                BorderThickness="1">
+            <ScrollViewer x:Name="scrollViewer" VerticalScrollBarVisibility="Auto">
+                <StackPanel x:Name="resultStack"></StackPanel>
+            </ScrollViewer>
+        </Border>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="Q_Button" Height="40" Width="60" HorizontalAlignment="Center" Content="Q" Margin="5" Click="QWERTY_ButtonClick"/>
             <Button x:Name="W_Button" Height="40" Width="60" HorizontalAlignment="Center" Content="W" Margin="5" Click="QWERTY_ButtonClick"/>

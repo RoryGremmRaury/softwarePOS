@@ -23,8 +23,8 @@ namespace POSSystem.Windows
         public string UserName { get; set; }
         private string UserPassword { get; set; }
         private string userInput;
-
-        pos_dbEntities dbEntities = new pos_dbEntities();
+        
+        pos_dbEntities3 dbEntities = new pos_dbEntities3();
         ObservableCollection<User> users;
         
         public Login()
@@ -42,6 +42,7 @@ namespace POSSystem.Windows
             {
                 user.Username.Trim();
                 user.Password.Trim();
+               
             }
             UserIdTB.Focus();
         }
@@ -52,30 +53,39 @@ namespace POSSystem.Windows
             //pull number from button pressed
             userInput = (((Button)sender).Content).ToString();
             //add number to string in credential area
-            PasswordTB.Text += userInput;
+            PasswordTB.Password += userInput;
         }
         private void CLRButton_Click(object sender, RoutedEventArgs e)
         {
-            string text = PasswordTB.Text;
+            string text = PasswordTB.Password;
             if (text.Length > 0)
             {
+            
                 text = text.Remove(text.Length - 1, 1);
-                PasswordTB.Text = text;
+                PasswordTB.Password = text;
             }
         }
 
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
-            var query = from user in users
-                        where (UserIdTB.Text == user.Username && PasswordTB.Text == user.Password)
-                        select user;
+            //var query = from user in users
+            //            where (UserIdTB.Text == user.Username && PasswordTB.Password == user.Password)
+            //            select user;
 
-
+            var query = users.FirstOrDefault(x => x.Username == UserIdTB.Text && x.Password == PasswordTB.Password);
             //if there is at least one user with that login info then...
-            if (query.Count() > 0)
+            
+            if (query.AccessLevel > 0)
             {
-                MainMenu window = new MainMenu();
-                window.Show();
+                //Display User main page 
+                MainMenu main = new MainMenu();
+                main.Show();
+                this.Close();
+            }else if (query.AccessLevel == 0)
+            {
+                //Display Admin Main page
+                SearchBoard sb = new SearchBoard();
+                sb.Show();
                 this.Close();
             }
             else
@@ -83,6 +93,16 @@ namespace POSSystem.Windows
                 //if creds are wrong, let user know
                 MessageBox.Show("Incorrect Username or Password");
             }
+        }
+        //Enter Key press
+        private void PasswordTB_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                
+                SubmitButton_Click(sender, e);
+            }
+
         }
     }
 }

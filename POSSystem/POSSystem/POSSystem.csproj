@@ -56,6 +56,12 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfControls, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfControls.AutoCompleteTextBox.1.0.0.7\lib\net35\WpfControls.dll</HintPath>
+    </Reference>
+    <Reference Include="WPFTextBoxAutoComplete, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFTextBoxAutoComplete.1.0.5\lib\net40\WPFTextBoxAutoComplete.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -65,9 +71,7 @@
     <Compile Include="Customer.cs">
       <DependentUpon>PosDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Drink.cs">
-      <DependentUpon>PosDB.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\DrinkSearch.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>PosDB.tt</DependentUpon>
@@ -86,6 +90,15 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PosDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>PosDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>PosDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>PosDB.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
       <DependentUpon>PosDB.tt</DependentUpon>
@@ -135,11 +148,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <EntityDeploy Include="PosDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PosDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="packages.config" />
     <None Include="PosDB.edmx.diagram">
       <DependentUpon>PosDB.edmx</DependentUpon>
     </None>
@@ -160,10 +173,9 @@
   <ItemGroup>
     <Content Include="PosDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PosDB.Context.cs</LastGenOutput>
       <DependentUpon>PosDB.edmx</DependentUpon>
+      <LastGenOutput>PosDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="PosDB.edmx.sql" />
     <Content Include="PosDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PosDB.edmx</DependentUpon>

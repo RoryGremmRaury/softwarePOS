@@ -14,8 +14,15 @@ namespace POSSystem
     
     public partial class Customer
     {
+        public Customer()
+        {
+            this.Orders = new HashSet<Order>();
+        }
+    
         public string Name { get; set; }
         public int CustomerID { get; set; }
         public string Email { get; set; }
+    
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

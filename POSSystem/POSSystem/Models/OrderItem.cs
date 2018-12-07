@@ -8,8 +8,12 @@ namespace POSSystem
 {
     class OrderItem
     {
-        public string ItemName { get; set; }
+        public int OrderId { get; set; }
+        public string CustomerName { get; set; }
+        public DateTime OrderDate { get; set; }
+        public int ItemID { get; set; }
         public decimal Price { get; set; }
-        public int Count { get; set; }
+        public int Qty { get; set; }
+        public string Name { get; set; }
     }
 }
