@@ -32,7 +32,7 @@ namespace POSSystem.UserControls
         {
             for (int i = 0; i < PButtons.Count; i++)
             {
-                ButtonControl buttonControl = new ButtonControl(PButtons[i]);
+                ProductButtonControl buttonControl = new ProductButtonControl(PButtons[i]);
 
                 ColumnDefinition column = new ColumnDefinition();
                 column.Width = new GridLength(1, GridUnitType.Star);

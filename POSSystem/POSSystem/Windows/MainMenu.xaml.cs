@@ -68,13 +68,21 @@ namespace POSSystem
             }
             else
             {
-                SubmenuOverlay.Children.Clear();
                 showing = false;
+                SubmenuOverlay.Children.RemoveRange(0, SubmenuOverlay.Children.Count);
+                SubmenuOverlay.Children.Clear();
+                buttonContainer.ButtonOverlay.Children.Clear();
+                foreach(ProductButton pb in pButtons)
+                {
+                    buttonContainer.ButtonOverlay.Children.Remove(pb);
+                }
+                pButtons.Clear();
             }
         }
 
         private void DisplayOverlay()
         {
+            
             if (buttonContainer is null)
             {
                 buttonContainer = new ButtonOverlayControl(pButtons);
@@ -86,41 +94,27 @@ namespace POSSystem
             
             Product[] queryArray = query.ToArray();
 
-            
-            foreach (Product p in queryArray)
+            if(pButtons.Count == 0)
             {
-                ProductButton pb = new ProductButton(p.ProductName);
-                pButtons.Add(pb);
-                //buttonContainer.ButtonOverlay.Children.Add(pb);
-            }
+                foreach (Product p in queryArray)
+                {
+                    ProductButton pb = new ProductButton(p.ProductName);
+                    pButtons.Add(pb);
 
-            //if there is already a button container, don't add another.
-            if(SubmenuOverlay.Children.Count == 0)
-            {
+                    buttonContainer.ButtonOverlay.Children.Add(pb);
+                    
+                }
                 SubmenuOverlay.Children.Add(buttonContainer);
             }
             
-            
+
             showing = true;
             
         }
 
         private void AccountButton_Click(object sender, RoutedEventArgs e)
         {
-            var query = from product in productCollection
-                        where product.ProductCategory == 2   //1 = drink, 2 = food, 3 = merch
-                        select product;
-
-
-            Product[] queryArray = query.ToArray();
-            foreach (Product p in queryArray)
-            {
-                SubmenuOverlay.Children.Add(new ProductButton(p.ProductName));
-            }
-            SubmenuOverlay.Children.Add(new ProductButton(queryArray[0].ProductName));
-
-            //TestOLButton.Content = queryArray[0].ProductName;
-
+            
         }
 
         private void FoodButton_Click(object sender, RoutedEventArgs e)

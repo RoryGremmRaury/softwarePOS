@@ -18,10 +18,16 @@ namespace POSSystem.Models
         {
             Name = name;
             Button pb = new Button();
+            Label l = new Label();
+            l.Content = Name;
+            l.Width = Width;
+            l.Height = Height;
             pb.DataContext = this;
             pb.MinWidth = Width;
             pb.MinHeight = Height;
-            pb.Content = Name;
+            pb.Content = l;
+            
+
             
         }
         private void Button_Click(object sender, RoutedEventArgs e)

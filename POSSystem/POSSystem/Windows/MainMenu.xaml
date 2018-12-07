@@ -58,9 +58,9 @@
             <Button HorizontalAlignment="Center" Margin="20,20" x:Name="SaleButton" Content="Sale" Style="{StaticResource ButtonStyle}" Click="SaleButton_Click"  Background="Green" Width="700" Height="50"/>
         </StackPanel>
         <!-- -->
-        <StackPanel x:Name="SubmenuOverlay" Height="300"  VerticalAlignment="Bottom" Background="Black" Margin="40" Visibility="Visible">
+        <Grid x:Name="SubmenuOverlay" Height="300"  VerticalAlignment="Bottom" Background="Black" Margin="40" Visibility="Visible">
           <!--  <Button x:Name="TestOLButton" Content="{}" Style="{StaticResource ButtonStyle}" Width="500" Height="150"/>  -->
-        </StackPanel>
+        </Grid>
         
 
     </Grid>

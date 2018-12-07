@@ -18,17 +18,17 @@ namespace POSSystem.UserControls
     /// <summary>
     /// Interaction logic for ButtonControl.xaml
     /// </summary>
-    public partial class ButtonControl : UserControl
+    public partial class ProductButtonControl : UserControl
     {
         public POSSystem.Models.ProductButton ProdButton { get; set; }
 
-        public ButtonControl(POSSystem.Models.ProductButton prodButton)
+        public ProductButtonControl(POSSystem.Models.ProductButton prodButton)
         {
             ProdButton = prodButton;
-
+            
             InitializeComponent();
             DataContext = this;
-            
+            NameLabel.Text = prodButton.Name;
         }
     }
 }
