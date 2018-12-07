@@ -7,8 +7,12 @@
         mc:Ignorable="d"
         Title="Account" Height="450" Width="800">
     <Grid>
-        <Button x:Name="AddFood" Content="Add Food" HorizontalAlignment="Left" Margin="533,148,0,0" VerticalAlignment="Top" Width="170" Height="125"/>
-        <Button x:Name="back" Content="Back" HorizontalAlignment="Left" Margin="64,69,0,0" VerticalAlignment="Top" Width="127" Click="back_Click" Height="118"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="73*"/>
+            <ColumnDefinition Width="323*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="AddFood" Content="Add Food" HorizontalAlignment="Left" Margin="387,148,0,0" Click="AddFood_Click"  VerticalAlignment="Top" Width="170" Height="125" Grid.Column="1"/>
+        <Button x:Name="back" Content="Back" HorizontalAlignment="Left" Margin="64,69,0,0" VerticalAlignment="Top"   Width="127" Click="back_Click" Height="118" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

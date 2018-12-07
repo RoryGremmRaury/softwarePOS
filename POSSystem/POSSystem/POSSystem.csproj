@@ -42,8 +42,10 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -62,33 +64,51 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddFood.xaml.cs">
+      <DependentUpon>AddFood.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs">
-      <DependentUpon>PosDB.tt</DependentUpon>
+      <DependentUpon>pos_db.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OrderItem.cs" />
+    <Compile Include="Models\ProductButton.cs" />
     <Compile Include="Order.cs">
-      <DependentUpon>PosDB.tt</DependentUpon>
+      <DependentUpon>pos_db.tt</DependentUpon>
     </Compile>
-    <Compile Include="PosDB.Context.cs">
+    <Compile Include="pos_db.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PosDB.Context.tt</DependentUpon>
+      <DependentUpon>pos_db.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="PosDB.cs">
+    <Compile Include="pos_db.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PosDB.tt</DependentUpon>
+      <DependentUpon>pos_db.tt</DependentUpon>
     </Compile>
-    <Compile Include="PosDB.Designer.cs">
+    <Compile Include="pos_db.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PosDB.edmx</DependentUpon>
+      <DependentUpon>pos_db.edmx</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>PosDB.tt</DependentUpon>
+      <DependentUpon>pos_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>pos_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>pos_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>pos_db.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>PosDB.tt</DependentUpon>
+      <DependentUpon>pos_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ButtonControl.xaml.cs">
+      <DependentUpon>ButtonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ButtonOverlayControl.xaml.cs">
+      <DependentUpon>ButtonOverlayControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Account.xaml.cs">
       <DependentUpon>Account.xaml</DependentUpon>
@@ -102,6 +122,18 @@
     <Compile Include="Windows\SearchBoard.xaml.cs">
       <DependentUpon>SearchBoard.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddFood.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ButtonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ButtonOverlayControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Account.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,12 +182,12 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <EntityDeploy Include="PosDB.edmx">
+    <EntityDeploy Include="pos_db.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PosDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>pos_db.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="PosDB.edmx.diagram">
-      <DependentUpon>PosDB.edmx</DependentUpon>
+    <None Include="pos_db.edmx.diagram">
+      <DependentUpon>pos_db.edmx</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -167,23 +199,20 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UserControls\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PosDB.Context.tt">
+    <Content Include="pos_db.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PosDB.edmx</DependentUpon>
-      <LastGenOutput>PosDB.Context.cs</LastGenOutput>
+      <DependentUpon>pos_db.edmx</DependentUpon>
+      <LastGenOutput>pos_db.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="PosDB.edmx.sql" />
-    <Content Include="PosDB.tt">
+    <Content Include="pos_db.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PosDB.edmx</DependentUpon>
-      <LastGenOutput>PosDB.cs</LastGenOutput>
+      <DependentUpon>pos_db.edmx</DependentUpon>
+      <LastGenOutput>pos_db.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -33,8 +33,10 @@ namespace POSSystem.Windows
         private void AddFood_Click(object sender, RoutedEventArgs e)
         {
 
-
-
+            AddFood foodwindow = new AddFood();
+            foodwindow.Show();
+            this.Close();
+            
         }
     }
 }

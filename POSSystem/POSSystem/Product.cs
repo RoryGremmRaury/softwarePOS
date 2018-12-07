@@ -14,9 +14,25 @@ namespace POSSystem
     
     public partial class Product
     {
+        public Product()
+        {
+            this.Orders = new HashSet<Order>();
+        }
+    
         public int ProductID { get; set; }
         public string ProductName { get; set; }
         public decimal ProductPrice { get; set; }
-        public string ProductCategory { get; set; }
+        public int ProductCategory { get; set; }
+        public Nullable<int> ProductYear { get; set; }
+        public string ProductBrand { get; set; }
+        public string ingredient_1 { get; set; }
+        public string ingredient_2 { get; set; }
+        public string ingredient_3 { get; set; }
+        public string ingredient_4 { get; set; }
+        public string ingredient_5 { get; set; }
+        public string ingredient_6 { get; set; }
+        public string ingredient_7 { get; set; }
+    
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

@@ -12,14 +12,12 @@ namespace POSSystem
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class sysdiagram
     {
-        public int OrderID { get; set; }
-        public int CustomerID { get; set; }
-        public int PoductID { get; set; }
-        public System.DateTime OrderDate { get; set; }
-    
-        public virtual Customer Customer { get; set; }
-        public virtual Product Product { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
